@@ -75,6 +75,7 @@ ECOSORTAI/
 ├── .gitignore
 └── README.md
 
+---
 ## 🔗 Project Links
 
 - ✅ GitHub Repository: https://github.com/mohammedriyashad/EcoSortAI
