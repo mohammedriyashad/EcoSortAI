@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>EcoSort AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🌿</div>
+      <div>
+        <h1>EcoSort AI</h1>
+        <p>AI-powered waste segregation + recycling guidance (SDG 12)</p>
+      </div>
+    </div>
+    <div class="badge">Sustainability • RAG • ML</div>
+  </header>
+
+  <main class="container">
+
+    <!-- Waste Classifier -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Waste Classifier</h2>
+          <p class="muted">Enter any household waste item and get disposal guidance with sustainability impact.</p>
+        </div>
+        <div class="pill" id="categoryPill">Ready</div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-wrap">
+          <span class="icon">🗑️</span>
+          <input id="itemInput" placeholder="Eg: plastic bottle, banana peel, battery, phone charger" />
+        </div>
+        <button class="btn primary" onclick="predictWaste()">Predict</button>
+      </div>
+
+      <div class="grid">
+        <div class="stat">
+          <span class="stat-title">Prediction</span>
+          <span class="stat-value" id="predValue">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-title">CO₂ Saved</span>
+          <span class="stat-value" id="co2Value">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-title">Suggested Action</span>
+          <span class="stat-value" id="actionValue">—</span>
+        </div>
+      </div>
+
+      <!-- Clean Output -->
+      <div class="resultBox">
+        <div class="result-title">Result</div>
+        <div class="result-line"><b>Category:</b> <span id="uiCategory">—</span></div>
+        <div class="result-line"><b>Disposal:</b> <span id="uiDisposal">—</span></div>
+        <div class="result-line"><b>Explanation:</b> <span id="uiExplanation">—</span></div>
+        <div class="result-line"><b>Impact:</b> <span id="uiImpact">—</span></div>
+      </div>
+
+      <!-- Raw JSON Dropdown -->
+      <details class="raw">
+        <summary>Raw JSON Output</summary>
+        <pre id="rawPredict">{}</pre>
+      </details>
+    </section>
+
+    <!-- RAG Assistant -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Ask Disposal Rules (RAG Assistant)</h2>
+          <p class="muted">Ask questions like “How to dispose batteries?” and get rule-based guidance.</p>
+        </div>
+        <div class="pill info">Knowledge Base</div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-wrap">
+          <span class="icon">💬</span>
+          <input id="queryInput" placeholder="Ask: where to dispose lithium battery? / is paper recyclable?" />
+        </div>
+        <button class="btn secondary" onclick="askAssistant()">Ask</button>
+      </div>
+
+      <!-- Clean Answer -->
+      <div class="resultBox">
+        <div class="result-title">Assistant Answer</div>
+        <div class="result-line"><b>Answer:</b> <span id="uiAnswer">—</span></div>
+        <div class="result-line muted"><b>Note:</b> Retrieved using Knowledge Base (RAG)</div>
+      </div>
+
+      <!-- Raw JSON Dropdown -->
+      <details class="raw">
+        <summary>Raw JSON Output</summary>
+        <pre id="rawAsk">{}</pre>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <div>Built with ❤️ for Sustainability Internship</div>
+      <div class="footer-right">
+        <span class="dot"></span> Backend: Flask • Model: TF-IDF + Logistic Regression • RAG: KB Retrieval
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
