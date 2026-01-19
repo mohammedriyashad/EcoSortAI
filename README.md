@@ -74,3 +74,9 @@ ECOSORTAI/
 │   └── styles.css
 ├── .gitignore
 └── README.md
+
+## 🔗 Project Links
+
+- ✅ GitHub Repository: https://github.com/mohammedriyashad/EcoSortAI
+- ✅ Backend (Render): https://ecosortai-backend.onrender.com
+- ✅ Frontend (Netlify): https://ecosortai-ml.netlify.app
